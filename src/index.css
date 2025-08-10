@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Geist:100,200,300,regular,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --background-image-gradient: var(--gradient);
+}
 
 :root {
   font-family: Geist, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -8,8 +15,11 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #101010;
 
+  --primary: #101010;
+  --secondary: #FFFFFF;
+  --gradient: linear-gradient(270deg, #6F47FF, #E036F3);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
