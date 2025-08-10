@@ -2,7 +2,7 @@ import React from 'react'
 
 const Description = () => {
   return (
-    <div className='w-full h-fit mt-32 font-light text-secondary text-lg text-left'>
+    <div className='w-full h-fit mt-16 lg:mt-32 font-light text-secondary text-lg text-left'>
       <div>
         Hey! I'm Utkarsh Majithia an aspiring web developer and a student at Purdue University.
       </div>

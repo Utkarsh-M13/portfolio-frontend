@@ -3,7 +3,7 @@ import React from 'react'
 const Contact = () => {
   return (
     <>
-    <div className='fixed bottom-0 mx-auto display-none xl:flex w-[1440px] h-[160px] border-x-[1px]'>
+    <div className='fixed bottom-0 mx-auto hidden xl:flex w-[1440px] h-[160px] border-x-[1px]'>
       <div className='w-full h-full relative'>
         <div className='rotate-90 font-light text-secondary right-[-110px] bottom-70 text-md absolute'>utkarsh.majithia13@gmail.com</div>
         <div className='absolute flex flex-col items-center gap-4 left-[-14px] bottom-45 text-secondary'>

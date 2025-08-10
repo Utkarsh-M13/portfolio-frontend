@@ -25,7 +25,7 @@ const Topbar = () => {
 
 
   return (
-    <div className='fixed w-full h-[96px] display-none md:flex bg-[rgba(16,16,16,0.5)] top-0 left-0 items-center justify-between'>
+    <div className='fixed w-full h-[96px] hidden lg:flex bg-[rgba(16,16,16,0.5)] top-0 left-0 items-center justify-between'>
       <div className='w-[160px] ml-[56px] flex justify-between items-center'>
         <div className='cursor-pointer'>
           <img className='rounded-[12px] w-[64px] h-[64px] border-white border-1' src="/assets/SelfPortrait.svg" alt="" />
