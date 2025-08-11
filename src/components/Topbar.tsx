@@ -30,13 +30,13 @@ const Topbar = () => {
         <div className='cursor-pointer'>
           <img className='rounded-[12px] w-[64px] h-[64px] border-white border-1' src="/assets/SelfPortrait.svg" alt="" />
         </div>
-        <div className='text-secondary cursor-pointer relative'>
+        <button className={`text-secondary cursor-pointer relative`} disabled={music} onClick={() => {setMusic(true)}}>
           {music && <Music forwardRef={musicRef}></Music>}
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => {setMusic(true)}} >
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" >
           <path fill-rule="evenodd" clip-rule="evenodd" d="M35 17.5H32.5V23.7495C31.4555 22.9649 30.157 22.5 28.75 22.5C25.2982 22.5 22.5 25.2983 22.5 28.75C22.5 32.2017 25.2982 35 28.75 35C32.2017 35 35 32.2017 35 28.75V17.5ZM28.75 25C30.821 25 32.5 26.679 32.5 28.75C32.5 30.821 30.821 32.5 28.75 32.5C26.679 32.5 25 30.821 25 28.75C25 26.679 26.679 25 28.75 25Z" fill="white"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M33.672 5.00244L13.672 6.25244L12.5 7.49999V26.2495C11.4554 25.465 10.157 25 8.75 25C5.29822 25 2.5 27.7982 2.5 31.25C2.5 34.7017 5.29822 37.5 8.75 37.5C12.2018 37.5 15 34.7017 15 31.25V16.1743L32.5 15.0806V17.5H35V6.24999L33.672 5.00244ZM32.5 7.58057V12.5757L15 13.6695V8.67432L32.5 7.58057ZM8.75 27.5C10.8211 27.5 12.5 29.179 12.5 31.25C12.5 33.321 10.8211 35 8.75 35C6.67893 35 5 33.321 5 31.25C5 29.179 6.67893 27.5 8.75 27.5Z" fill="currentColor"/>
           </svg>
-        </div>
+        </button>
       </div>
       <div className='flex justify-between gap-40 mr-12 items-center'>
         <div className='w-fit text-[20px] text-secondary flex gap-10'>

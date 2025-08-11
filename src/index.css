@@ -14,13 +14,15 @@
   font-weight: 400;
   height: 100vh;
   width: 100%;
+  padding: 0px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #101010;
 
-  --primary: #101010;
-  --secondary: #FFFFFF;
+  /* --primary: #101010;
+  --secondary: #FFFFFF; */
+
   --gradient: linear-gradient(270deg, #6F47FF, #E036F3);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,8 +31,7 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
 
