@@ -16,6 +16,7 @@ const Topbar = ({scrolled} : Props) => {
   const nonScrolledStyle = 'fixed w-full h-[96px] hidden lg:flex bg-primary/50 top-0 left-0 items-center justify-between z-50'
   const {scroll} = useScroll()
   const {theme, setTheme} = useTheme()
+  const [logo, setLogo] = useState(true)
 
   const handleAboutClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -71,8 +72,8 @@ const Topbar = ({scrolled} : Props) => {
   return (
     <div className={!scrolled || theme ? scrolledStyle : nonScrolledStyle}>
       <div className='w-[160px] ml-[56px] flex justify-between items-center'>
-        <div className='cursor-pointer'>
-          <img className='rounded-[12px] w-[64px] h-[64px] border-secondary border-1' src="/assets/SelfPortrait.svg" alt="" />
+        <div className='cursor-pointer bg-white rounded-[12px]' onClick={() => {setLogo((b) => !b)}}>
+          <img className='rounded-[12px] w-[64px] h-[64px] border-secondary border-1' src={logo ? "/assets/SelfPortrait.svg" : "/assets/logo.png"} alt="" />
         </div>
         <button className={`text-secondary cursor-pointer relative`} disabled={music} onClick={() => {setMusic(true)}}>
           {music && <Music forwardRef={musicRef}></Music>}
