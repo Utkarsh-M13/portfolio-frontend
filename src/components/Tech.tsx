@@ -61,7 +61,7 @@ const Tech = () => {
   return (
     <div className='w-full h-fit mt-12 lg:mt-24 text-left'>
       <div className='font-medium text-lg text-secondary mb-4'>My Technologies</div>
-      <div className='grid gap-4 w-full grid-cols-3 md:grid-cols-4 lg:grid-cols-7'>
+      <div className='grid gap-4 w-full grid-cols-3 sm:grid-cols-4 lg:grid-cols-7'>
         {
         technologies.map((t) => {
           return <TechCard key={t.src} name={t.name} height={t.height} width={t.width} src={t.src} link={t.link}></TechCard>

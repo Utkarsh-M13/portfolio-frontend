@@ -6,6 +6,7 @@ type Card = {
   title: string;
   technologies: string[];
 }
+
 const Experience = () => {
   const cards : Card[] = [{
     date:'May - August 2025',
@@ -28,7 +29,7 @@ const Experience = () => {
   ]
 
   return (
-    <div className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
+    <div id='Experience' className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
       <div className='font-medium text-lg text-secondary mb-4'>My Experience</div>
       {cards.map((c) => <ExperienceCard date={c.date} title={c.title} description={c.description} technologies={c.technologies} key={c.title}></ExperienceCard>)}
     </div>

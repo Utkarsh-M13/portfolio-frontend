@@ -10,6 +10,7 @@ type Card = {
   technologies: string[]
 }
 
+
 const Projects = () => {
   const projects : Card[] = [
     {
@@ -38,7 +39,7 @@ const Projects = () => {
     }
   ]
   return (
-    <div className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
+    <div id='Projects' className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
       <div className='font-medium text-lg text-secondary mb-4'>Projects</div>
       {projects.map((c) => <ProjectCard key={c.title} description={c.description} title={c.title} technologies={c.technologies} link={c.link} github={c.github} src={c.src}></ProjectCard>)}
     </div>

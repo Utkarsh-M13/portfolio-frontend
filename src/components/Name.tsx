@@ -3,11 +3,11 @@ import Status from './Status'
 
 const Name = () => {
   return (
-    <div  className='w-full h-fit flex justify-center lg:justify-between text-left'>
+    <div  id='About' className='w-full h-fit flex justify-center lg:justify-between text-left'>
       <div className='flex flex-col text-secondary'>
         <div className='font-bold text-[40px] hover:underline decoration-2 lg:flex items-end gap-1 cursor-pointer'><a href="/assets/resume.pdf" download="Utkarsh Majithia's Resume">Utkarsh Majithia</a>
           <svg className='mb-2.5 lg:inline hidden' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.8343 18.1658C5.52187 17.8533 5.52187 17.3468 5.8343 17.0344L16.4686 6.40005H9.59998C9.15816 6.40005 8.79998 6.04187 8.79998 5.60005C8.79998 5.15822 9.15816 4.80005 9.59998 4.80005H18.4C18.6121 4.80005 18.8157 4.88434 18.9657 5.03437C19.1157 5.1844 19.2 5.38787 19.2 5.60005V14.4001C19.2 14.8419 18.8417 15.2001 18.4 15.2001C17.9582 15.2001 17.6 14.8419 17.6 14.4001V7.53142L6.96566 18.1658C6.65324 18.4781 6.14672 18.4781 5.8343 18.1658Z" fill="currentColor"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M5.8343 18.1658C5.52187 17.8533 5.52187 17.3468 5.8343 17.0344L16.4686 6.40005H9.59998C9.15816 6.40005 8.79998 6.04187 8.79998 5.60005C8.79998 5.15822 9.15816 4.80005 9.59998 4.80005H18.4C18.6121 4.80005 18.8157 4.88434 18.9657 5.03437C19.1157 5.1844 19.2 5.38787 19.2 5.60005V14.4001C19.2 14.8419 18.8417 15.2001 18.4 15.2001C17.9582 15.2001 17.6 14.8419 17.6 14.4001V7.53142L6.96566 18.1658C6.65324 18.4781 6.14672 18.4781 5.8343 18.1658Z" fill="currentColor"/>
           </svg>
 
         </div>
