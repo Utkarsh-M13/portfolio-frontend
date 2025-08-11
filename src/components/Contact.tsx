@@ -4,7 +4,7 @@ const Contact = () => {
     <>
     <div className='fixed bottom-0 mx-auto hidden lg:flex lg:w-[1000px] xl:w-[1200px] 2xl:w-[1440px] h-[160px] border-x-[1px] text-secondary'>
       <div className='w-full h-full relative'>
-        <div className='rotate-90 font-light text-secondary right-[-110px] bottom-70 text-md absolute cursor-pointer hover:underline decoration-1'>utkarsh.majithia13@gmail.com</div>
+        <div className='rotate-90 font-light text-secondary right-[-110px] bottom-70 text-md absolute cursor-pointer hover:underline decoration-1'><a href="mailto:utkarsh.majithia13@gmail.com">utkarsh.majithia13@gmail.com</a></div>
         <div className='absolute flex flex-col items-center gap-4 left-[-14px] bottom-45'>
           <a href="https://github.com/Utkarsh-M13">
             <svg className='cursor-pointer' width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

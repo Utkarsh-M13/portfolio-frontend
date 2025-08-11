@@ -69,7 +69,7 @@ const Topbar = ({scrolled} : Props) => {
 
 
   return (
-    <div className={!scrolled || !theme ? scrolledStyle : nonScrolledStyle}>
+    <div className={!scrolled || theme ? scrolledStyle : nonScrolledStyle}>
       <div className='w-[160px] ml-[56px] flex justify-between items-center'>
         <div className='cursor-pointer'>
           <img className='rounded-[12px] w-[64px] h-[64px] border-secondary border-1' src="/assets/SelfPortrait.svg" alt="" />
