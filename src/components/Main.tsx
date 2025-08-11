@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AmorphousBackdrop from './AmorphousBackdrop'
 import Cards from './Cards'
 import Contact from './Contact'
