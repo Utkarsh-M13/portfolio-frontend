@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const DOT = 2;
 const GAP = 14;
@@ -19,16 +20,18 @@ const DRIFT = 0.05;        // rad/s (slower direction drift)
 const BASE_AMP = 0.3;      // px (smaller)
 const BASE_ROT = 0.02;     // rad/s
 
-const BG = "#101010";
-const COLOURS: string[] = [
-  "#5D5D5D", "#868686", "#999191", "#F7F4F4",
-  "#181818", "#181818", "#181818", "#181818",
-];
+
+
 const DPR_CAP = 2;
 
 type Source = { x: number; y: number; born: number; life: number; angle0: number };
 
 export default function AmorphousBackdropSynced() {
+  const {theme} = useTheme()
+  const BG = !theme ? '#FFFFFF' : "#101010";
+
+  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
   const prevMsRef = useRef<number>(0);
@@ -46,6 +49,14 @@ export default function AmorphousBackdropSynced() {
   }, []);
 
   useEffect(() => {
+
+    const COLOURS: string[] = theme ? [
+      "#5D5D5D", "#868686", "#999191", "#F7F4F4",
+      "#181818", "#181818", "#181818", "#181818",
+    ] :[
+      "#5D5D5D", "#868686", "#999191", "#F7F4F4",
+      "#EEEEEE", "#EEEEEE", "#EEEEEE", "#EEEEEE",
+    ]
     const canvas = canvasRef.current;
     if (!canvas || !size.w || !size.h) return;
 
@@ -176,7 +187,7 @@ export default function AmorphousBackdropSynced() {
 
     rafRef.current = requestAnimationFrame(frame);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [size.w, size.h]);
+  }, [size.w, size.h, BG, theme]);
 
   return (
     <canvas
@@ -188,7 +199,7 @@ export default function AmorphousBackdropSynced() {
         zIndex: -1,
         pointerEvents: "none",
         background: BG,
-        opacity: 0.6,
+        opacity: theme ? 0.6 : 0.9,
       }}
     />
   );

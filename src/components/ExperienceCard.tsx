@@ -1,3 +1,5 @@
+import { useTheme } from "../context/ThemeContext";
+
 type Props = {
   date: string;
   description: string;
@@ -6,8 +8,12 @@ type Props = {
 }
 
 const ExperienceCard = ({date, description, title, technologies} : Props) => {
+    const {theme} = useTheme()
+    const style = theme ? 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse lg:flex-row gap-8 hover:bg-[#F5F5F5]/12.5 px-6 py-3 relative text-secondary' : 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse lg:flex-row gap-8 hover:bg-[#707070]/25 px-6 py-3 relative text-secondary'
+
+    const techStyle = theme ? 'w-fit px-2 py-1 bg-[#656161]/50 text-[10px] text-secondary font-light rounded-xl' : 'w-fit px-2 py-1 bg-[#656161]/20 text-[10px] text-secondary font-light rounded-xl'
   return (
-    <div className=' w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col lg:flex-row gap-6 hover:bg-[#F5F5F5]/12.5 px-6 py-3'>
+    <div className={style}>
       <div className='font-light text-sm'>{date}</div>
       <div className='flex flex-col w-fit lg:w-120'>
         <div className='font-medium text-md align-text-top flex items-end gap-1 hover:underline decoration-1 cursor-pointer'>{title}
@@ -20,7 +26,7 @@ const ExperienceCard = ({date, description, title, technologies} : Props) => {
         </div>
         <div className='flex flex-wrap gap-2 w-full h-fit mt-4'>
           {
-            technologies.map((t) => <span className='w-fit px-2 py-1 bg-[#656161]/50 text-[10px] text-secondary font-light rounded-xl' key={t}>{t}</span>)
+            technologies.map((t) => <span className={techStyle} key={t}>{t}</span>)
           }
         </div>
       </div>

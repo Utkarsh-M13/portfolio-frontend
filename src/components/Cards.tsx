@@ -6,6 +6,7 @@ import Projects from './Projects'
 import Footer from './Footer'
 import { useEffect } from 'react'
 import { useScroll } from '../context/ScrollContext'
+import { useTheme } from '../context/ThemeContext'
 
 const sectionIDs = ['About', 'Experience', 'Projects']
 
@@ -35,9 +36,12 @@ const Cards = () => {
     return () => io.disconnect();
   }, [setScroll])
 
-
+  const theme = useTheme()
+  const style = theme ? ' w-[600px] lg:w-[800px] h-fit mt-4 lg:mt-40 z-10 overflow-auto' : 
+  ' w-[600px] lg:w-[800px] h-fit mt-4 lg:mt-40 z-10 overflow-auto bg-[#DDDDDD]/20'
+  
   return (
-    <div className=' w-[600px] lg:w-[800px] h-fit mt-4 lg:mt-40 z-10 overflow-auto'>
+    <div className={style}>
       <Name></Name>
       <Description></Description>
       <Tech></Tech>
