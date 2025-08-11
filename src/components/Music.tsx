@@ -1,9 +1,18 @@
+import { useEffect } from "react"
+import { getLastPlayed } from "../services/spotify"
 
 type Props  = {
   forwardRef: React.RefObject<HTMLDivElement | null>
 }
 
 const Music = ({forwardRef} : Props) => {
+  useEffect(() => {
+    const handleFetch = async () => {
+      const lastPlayedSong = await getLastPlayed()
+      console.log('lastPlayedSong', lastPlayedSong)
+    }
+    handleFetch()
+  }, [])
   return (
     <div ref={forwardRef} className='h-[84px] w-[260px] bg-primary border-[#2C2C2C] border-1 flex absolute rounded-lg top-12 left-[-20px] gap-8 cursor-pointer pl-4 items-center'>
       <div className='h-14'>
