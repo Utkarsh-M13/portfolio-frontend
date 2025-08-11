@@ -1,4 +1,3 @@
-import React from 'react'
 
 type Props  = {
   forwardRef: React.RefObject<HTMLDivElement | null>

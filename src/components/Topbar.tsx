@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Music from './Music'
 import { useScroll } from '../context/ScrollContext';
 
 type Props = {
   scrolled: boolean,
-  experienceRef: HTMLDivElement | null,
-  projectRef: HTMLDivElement | null,
 }
 
 const Topbar = ({scrolled} : Props) => {

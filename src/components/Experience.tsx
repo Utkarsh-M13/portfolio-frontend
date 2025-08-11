@@ -1,4 +1,3 @@
-import React from 'react'
 import ExperienceCard from './ExperienceCard'
 type Card = {
   date: string;
