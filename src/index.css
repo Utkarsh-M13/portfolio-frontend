@@ -20,8 +20,8 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #101010;
 
-  /* --primary: #101010;
-  --secondary: #FFFFFF; */
+  --primary: #101010;
+  --secondary: #FFFFFF;
 
   --gradient: linear-gradient(270deg, #6F47FF, #E036F3);
   font-synthesis: none;
