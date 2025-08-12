@@ -8,6 +8,13 @@ const Main = () => {
   const [scrolled, setScrolled] = useState(true);
   
     useEffect(() => {
+      const prefersDark = typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+
+      if (!prefersDark) {
+        document.documentElement.classList.add("light-mode");
+        document.documentElement.classList.remove("dark-mode");
+      }
       const onScroll = () => {
         setScrolled(window.scrollY > 0);
       };
