@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import AmorphousBackdrop from './AmorphousBackdrop'
 import Cards from './Cards'
-import Contact from './Contact'
 import Topbar from './Topbar'
 
 const Main = () => {
@@ -29,7 +28,6 @@ const Main = () => {
     <div className={`flex justify-center h-full w-full`}>
             <Topbar scrolled={scrolled}></Topbar>
             <AmorphousBackdrop></AmorphousBackdrop>
-            <Contact></Contact>
             <Cards></Cards>
     </div>
   )
