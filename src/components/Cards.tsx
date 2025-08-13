@@ -37,8 +37,8 @@ const Cards = () => {
   }, [setScroll])
 
   const theme = useTheme()
-  const style = theme ? ' w-[600px] lg:w-[800px] h-fit mt-4 lg:mt-40 z-10 overflow-auto' : 
-  ' w-[600px] lg:w-[800px] h-fit mt-4 lg:mt-40 z-10 overflow-auto bg-[#DDDDDD]/20'
+  const style = theme ? ' w-[600px] lg:w-[800px] h-fit mt-8 lg:mt-40 z-10 overflow-auto' : 
+  ' w-[600px] lg:w-[800px] h-fit mt-8 lg:mt-40 z-10 overflow-auto bg-[#DDDDDD]/20'
   
   return (
     <div className={style}>

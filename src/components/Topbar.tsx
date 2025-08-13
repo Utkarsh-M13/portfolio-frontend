@@ -12,11 +12,11 @@ const Topbar = ({scrolled} : Props) => {
   const musicRef = useRef<HTMLDivElement | null>(null);
   const nonHighlight = 'cursor-pointer hover:bg-gradient hover:bg-clip-text hover:text-transparent transition-all duration-200 ease-linear'
   const highlight = 'cursor-pointer bg-gradient bg-clip-text text-transparent transition-all duration-100'
-  const scrolledStyle = 'fixed w-full h-[96px] hidden lg:flex bg-primary/90 top-0 left-0 items-center justify-between z-50'
-  const nonScrolledStyle = 'fixed w-full h-[96px] hidden lg:flex bg-primary/50 top-0 left-0 items-center justify-between z-50'
+  const scrolledStyle = 'fixed w-full  h-[64px] lg:h-[96px] flex bg-primary/90 top-0 left-0 items-center justify-between z-50'
+  const nonScrolledStyle = 'fixed w-full  h-[64px] lg:h-[96px] flex bg-primary/50 top-0 left-0 items-center justify-between z-50'
   const {scroll} = useScroll()
   const {theme, setTheme} = useTheme()
-  const [logo, setLogo] = useState(true)
+  const [logo, setLogo] = useState(0)
 
   const handleAboutClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -68,14 +68,17 @@ const Topbar = ({scrolled} : Props) => {
   
     }, [music])
 
+    let logoURL = '/assets/tAvatar.jpeg'
+    if (logo === 0) logoURL = '/assets/SelfPortrait.svg'
+    if (logo === 1) logoURL = '/assets/logo.png'
 
   return (
     <div className={(scrolled || !theme) ? scrolledStyle : nonScrolledStyle}>
-      <div className='w-[160px] ml-[56px] flex justify-between items-center'>
-        <div className='cursor-pointer bg-white rounded-[12px]' onClick={() => {setLogo((b) => !b)}}>
-          <img className='rounded-[12px] w-[64px] h-[64px] border-secondary border-1' src={logo ? "/assets/SelfPortrait.svg" : "/assets/logo.png"} alt="" />
+      <div className='w-[160px]  ml-[40px] lg:ml-[56px] flex justify-between items-center'>
+        <div className='cursor-pointer bg-white rounded-[12px] hidden lg:inline' onClick={() => {setLogo((b) => (b + 1) % 2)}}>
+          <img className='rounded-[12px] w-[48px] h-[48px] lg:w-[64px] lg:h-[64px] border-secondary border-1' src={logoURL} alt="" />
         </div>
-        <button className={`text-secondary cursor-pointer relative`} disabled={music} onClick={() => {setMusic(true)}}>
+        <button className={`hidden lg:inline text-secondary cursor-pointer relative`} disabled={music} onClick={() => {setMusic(true)}}>
           {music && <Music forwardRef={musicRef}></Music>}
           <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" >
           <path fillRule="evenodd" clipRule="evenodd" d="M35 17.5H32.5V23.7495C31.4555 22.9649 30.157 22.5 28.75 22.5C25.2982 22.5 22.5 25.2983 22.5 28.75C22.5 32.2017 25.2982 35 28.75 35C32.2017 35 35 32.2017 35 28.75V17.5ZM28.75 25C30.821 25 32.5 26.679 32.5 28.75C32.5 30.821 30.821 32.5 28.75 32.5C26.679 32.5 25 30.821 25 28.75C25 26.679 26.679 25 28.75 25Z" fill="currentColor"/>
@@ -84,7 +87,7 @@ const Topbar = ({scrolled} : Props) => {
         </button>
       </div>
       <div className='flex justify-between gap-40 mr-12 items-center'>
-        <div className='w-fit text-[20px] text-secondary flex gap-10'>
+        <div className='hidden w-fit text-[20px] text-secondary lg:flex gap-10'>
           <div className={scroll === 0 ? highlight : nonHighlight} onClick={handleAboutClick}>About</div>
           <div className={scroll === 1 ? highlight : nonHighlight} onClick={handleExperienceClick}>Experience</div>
           <div className={scroll === 2 ? highlight : nonHighlight} onClick={handleProjectClick}>Projects</div>

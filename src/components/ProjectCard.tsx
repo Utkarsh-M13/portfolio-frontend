@@ -11,7 +11,7 @@ type Props = {
 
 const ProjectCard = ({title, description, link, github, src, technologies} : Props) => {
   const {theme} = useTheme()
-  const style = theme ? 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse lg:flex-row gap-8 hover:bg-[#F5F5F5]/12.5 px-6 py-3 relative text-secondary' : 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse lg:flex-row gap-8 hover:bg-[#707070]/25 px-6 py-3 relative text-secondary'
+  const style = theme ? 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse lg:flex-row gap-4 lg:gap-8 hover:bg-[#F5F5F5]/12.5 px-6 py-3 relative text-secondary lg:mb-0 mb-6' : 'w-fit sm:w-120 lg:w-[720px] min-h-[200px] rounded-xl flex flex-col-reverse gap-4 lg:flex-row gap-8 hover:bg-[#707070]/25 px-6 py-3 relative text-secondary lg:mb-0 mb-6'
 
   const techStyle = theme ? 'w-fit px-2 py-1 bg-[#656161]/50 text-[10px] text-secondary font-light rounded-xl' : 'w-fit px-2 py-1 bg-[#656161]/20 text-[10px] text-secondary font-light rounded-xl'
 
@@ -39,7 +39,7 @@ const ProjectCard = ({title, description, link, github, src, technologies} : Pro
           </svg>
         </a>
 
-        <div className='font-light text-sm min-h-[140px] mt-2'>
+        <div className='font-light text-sm lg:min-h-[140px] mt-2'>
          {description}
         </div>
         <div className='flex flex-wrap gap-2 w-full h-fit mt-4'>
