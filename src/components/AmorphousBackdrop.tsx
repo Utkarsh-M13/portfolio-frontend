@@ -66,7 +66,7 @@ export default function AmorphousBackdropSynced() {
     canvas.style.width = `${size.w}px`;
     canvas.style.height = `${size.h}px`;
 
-    const ctx = canvas.getContext("2d")!;
+    const ctx = canvas.getContext("2d", { alpha: false })!;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const step = DOT + GAP;
