@@ -29,7 +29,8 @@ type Source = { x: number; y: number; born: number; life: number; angle0: number
 export default function AmorphousBackdropSynced() {
   const {theme} = useTheme()
   const BG = !theme ? '#FFFFFF' : "#101010";
-
+  console.log('BG', BG)
+  console.log('theme', theme)
   
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
