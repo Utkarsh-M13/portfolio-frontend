@@ -1,3 +1,8 @@
+import Name from './Name'
+import Description from './Description'
+import Tech from './Tech'
+import Experience from './Experience'
+import Projects from './Projects'
 import Footer from './Footer'
 import { useEffect } from 'react'
 import { useScroll } from '../context/ScrollContext'
@@ -37,6 +42,11 @@ const Cards = () => {
   
   return (
     <div className={style}>
+      <Name></Name>
+      <Description></Description>
+      <Tech></Tech>
+      <Experience></Experience>
+      <Projects></Projects>
       <Footer></Footer>
     </div>
   )
