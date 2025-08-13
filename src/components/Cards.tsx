@@ -1,4 +1,3 @@
-import Footer from './Footer'
 import { useEffect } from 'react'
 import { useScroll } from '../context/ScrollContext'
 import { useTheme } from '../context/ThemeContext'
@@ -37,7 +36,6 @@ const Cards = () => {
   
   return (
     <div className={style}>
-      <Footer></Footer>
     </div>
   )
 }
