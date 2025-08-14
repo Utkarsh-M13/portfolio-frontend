@@ -50,10 +50,7 @@ export default function AmorphousBackdropSynced() {
 
   useEffect(() => {
 
-    const COLOURS: string[] = theme ? [
-      "#5D5D5D", "#868686", "#999191", "#F7F4F4",
-      "#181818", "#181818", "#181818", "#181818",
-    ] :[
+    const COLOURS: string[] = theme ? ["#2E2E2E", "#434343", "#4C4848", "#7B7A7A", "#0C0C0C", "#0C0C0C", "#0C0C0C", "#0C0C0C"] :[
       "#5D5D5D", "#868686", "#999191", "#F7F4F4",
       "#EEEEEE", "#EEEEEE", "#EEEEEE", "#EEEEEE",
     ]
@@ -199,7 +196,7 @@ export default function AmorphousBackdropSynced() {
         zIndex: -1,
         pointerEvents: "none",
         background: BG,
-        opacity: 0.5,
+        opacity: 1,
       }}
     />
   );
