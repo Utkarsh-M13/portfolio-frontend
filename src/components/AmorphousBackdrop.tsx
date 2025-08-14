@@ -50,10 +50,8 @@ export default function AmorphousBackdropSynced() {
 
   useEffect(() => {
 
-    const COLOURS: string[] = theme ? ["#2E2E2E", "#434343", "#4C4848", "#7B7A7A", "#0C0C0C", "#0C0C0C", "#0C0C0C", "#0C0C0C"] :[
-      "#5D5D5D", "#868686", "#999191", "#F7F4F4",
-      "#EEEEEE", "#EEEEEE", "#EEEEEE", "#EEEEEE",
-    ]
+    const COLOURS: string[] = theme ? ["#2E2E2E", "#434343", "#4C4848", "#7B7A7A", "#0C0C0C", "#0C0C0C", "#0C0C0C", "#0C0C0C"] :["#aeaeae", "#c3c3c3", "#cac5c5", "#fbfafa", "#f7f7f7", "#f7f7f7", "#f7f7f7", "#f7f7f7"]
+
     const canvas = canvasRef.current;
     if (!canvas || !size.w || !size.h) return;
 
