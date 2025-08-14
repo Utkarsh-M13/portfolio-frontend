@@ -199,7 +199,7 @@ export default function AmorphousBackdropSynced() {
         zIndex: -1,
         pointerEvents: "none",
         background: BG,
-        opacity: 1,
+        opacity: 0.5,
       }}
     />
   );
