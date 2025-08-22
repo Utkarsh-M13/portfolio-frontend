@@ -27,7 +27,7 @@ const Projects = () => {
       src: "/assets/yojna.png",
       description: "I developed Yojna, my first React Native application, designed to showcase and increase awareness of government schemes and yojnas in India that often go underused. The app provides users with an accessible, mobile-first way to explore programs, featuring a clean UI and smooth animations built with React Native, Reanimated, and Expo. This project marked my entry into cross-platform development, where I focused on building a responsive interface, efficient navigation, and a seamless user experience.",
       technologies: ["React-Native", 'Expo', 'Typescript', 'Reanimated'],
-      github: 'https://github.com/Utkarsh-M13/https://github.com/Utkarsh-M13/Yojna-App',
+      github: 'https://github.com/Utkarsh-M13/Yojna-App',
       link: '',
       comingSoon: true
     },
