@@ -10,7 +10,6 @@ const Main = () => {
     useEffect(() => {
       const prefersDark = typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-      console.log('prefersDark', prefersDark)
 
       if (!prefersDark) {
         document.documentElement.classList.add("light-mode");

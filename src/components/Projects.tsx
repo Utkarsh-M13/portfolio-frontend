@@ -6,7 +6,8 @@ type Card = {
   link: string,
   github: string,
   src: string,
-  technologies: string[]
+  technologies: string[],
+  comingSoon?: boolean
 }
 
 
@@ -18,7 +19,17 @@ const Projects = () => {
       description: "I built an AI-driven sentiment trading system that ingests market headlines and social chatter, scores sentiment, and turns it into buy/sell signals with risk controls (position sizing, stops, cooldowns). It executes in a paper-trading account, logs every trade, and supports backtesting. I also shipped a responsive React dashboard that streams the bot's live portfolio—holdings, P&L, equity curve, and trade history—so you can monitor performance in real time.",
       technologies: ["NewsAPI", 'Polygon.io', 'IBKR', 'Twitter API', 'TimescaleDB', 'PostGres', 'PyTorch', 'FinBert', 'React', 'Socket.io'],
       github: '',
-      link: ''
+      link: '',
+      comingSoon: true
+    },{
+
+      title: 'Yojna',
+      src: "/assets/yojna.png",
+      description: "I developed Yojna, my first React Native application, designed to showcase and increase awareness of government schemes and yojnas in India that often go underused. The app provides users with an accessible, mobile-first way to explore programs, featuring a clean UI and smooth animations built with React Native, Reanimated, and Expo. This project marked my entry into cross-platform development, where I focused on building a responsive interface, efficient navigation, and a seamless user experience.",
+      technologies: ["React-Native", 'Expo', 'Typescript', 'Reanimated'],
+      github: 'https://github.com/Utkarsh-M13/https://github.com/Utkarsh-M13/Yojna-App',
+      link: '',
+      comingSoon: true
     },
     {
       title: 'Tetreon',
@@ -40,7 +51,7 @@ const Projects = () => {
   return (
     <div id='Projects' className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
       <div className='font-medium text-lg text-secondary mb-4'>Projects</div>
-      {projects.map((c) => <ProjectCard key={c.title} description={c.description} title={c.title} technologies={c.technologies} link={c.link} github={c.github} src={c.src}></ProjectCard>)}
+      {projects.map((c) => <ProjectCard key={c.title} description={c.description} title={c.title} technologies={c.technologies} link={c.link} github={c.github} src={c.src} comingSoon={c.comingSoon}></ProjectCard>)}
     </div>
   )
 }

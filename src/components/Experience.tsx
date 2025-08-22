@@ -11,7 +11,7 @@ const Experience = () => {
   const cards : Card[] = [{
     date:'May - August 2025',
     title: 'Full Stack Intern • KPMG',
-    description: 'I engineered an invite-only community platform for KPMG, delivering real-time chat “spaces,” feed-based spaces for posts/comments/likes, role-based admin controls, and robust auth. I designed the MongoDB schema , built REST APIs in Express, implemented JWT + Google OAuth, added file uploads to Cloudinary via Multer, and shipped a polished React (TypeScript) front end with Tailwind/MUI, protected routes, dark mode, and global 401 handling. Deployed as a SPA.',
+    description: 'I built an invite-only community platform for KPMG with real-time chat, feed-based posts, link-based invites, role-based authentication, and a full admin dashboard. The platform featured a modern React (TypeScript) front end, a secure Express/MongoDB backend, and integrations like Google OAuth, Cloudinary uploads, and SendGrid emails for invites and password resets. I also implemented a custom role-based access control system, allowing granular permissions for different user roles. The platform was designed to scale with KPMG’s growing community needs, ensuring high availability and performance.',
     technologies:['ReactJS', 'NextJS', 'JavaScript', 'TypeScript', 'ExpressJS', 'NodeJS', 'Tailwind', 'MongoDB'],
     link:'https://kpmg.com/xx/en.html'
     },

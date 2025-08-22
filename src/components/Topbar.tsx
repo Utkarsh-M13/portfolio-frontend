@@ -4,7 +4,7 @@ import { useScroll } from '../context/ScrollContext';
 import { useTheme } from '../context/ThemeContext';
 
 type Props = {
-  scrolled: boolean,
+  scrolled?: boolean,
 }
 
 const Topbar = ({scrolled} : Props) => {
@@ -87,11 +87,13 @@ const Topbar = ({scrolled} : Props) => {
         </button>
       </div>
       <div className='flex justify-between gap-40 mr-12 items-center'>
+        {scrolled === undefined ? null :
         <div className='hidden w-fit text-[20px] text-secondary lg:flex gap-10'>
           <div className={scroll === 0 ? highlight : nonHighlight} onClick={handleAboutClick}>About</div>
           <div className={scroll === 1 ? highlight : nonHighlight} onClick={handleExperienceClick}>Experience</div>
           <div className={scroll === 2 ? highlight : nonHighlight} onClick={handleProjectClick}>Projects</div>
         </div>
+        }
         {theme ? 
         <div className='text-secondary cursor-pointer' onClick={switchTheme}>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

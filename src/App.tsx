@@ -1,21 +1,21 @@
+import { Route, BrowserRouter as Router, Routes} from 'react-router-dom'
 import './App.css'
-
-import { ScrollProvider } from './context/ScrollContext'
-import Main from './components/Main'
-import { ThemeProvider } from './context/ThemeContext'
+import LandingPage from './LandingPage/LandingPage'
+import ComingSoonPage from './ComingSoonPage.tsx/ComingSoonPage'
+import NotFound from './components/NotFound'
 
 function App() {
 
   
 
   return (
-
-    <ScrollProvider>
-      <ThemeProvider>
-        <Main></Main>
-      </ThemeProvider>
-    </ScrollProvider>
-    
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/coming-soon" element={<ComingSoonPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   )
 }
 
