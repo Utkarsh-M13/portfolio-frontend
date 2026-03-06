@@ -21,16 +21,26 @@ const Projects = () => {
       github: 'https://github.com/Utkarsh-M13/Sentiment-Analysis-Trader',
       link: 'https://sat.utkarsh-dev.com/',
       comingSoon: false
-    },{
-
-      title: 'Yojna',
-      src: "/assets/yojna.png",
-      description: "I developed Yojna, my first React Native application, designed to showcase and increase awareness of government schemes and yojnas in India that often go underused. The app provides users with an accessible, mobile-first way to explore programs, featuring a clean UI and smooth animations built with React Native, Reanimated, and Expo. This project marked my entry into cross-platform development, where I focused on building a responsive interface, efficient navigation, and a seamless user experience.",
-      technologies: ["React-Native", 'Expo', 'Typescript', 'Reanimated'],
-      github: 'https://github.com/Utkarsh-M13/Yojna-App',
-      link: '',
-      comingSoon: true
     },
+    {
+      title: 'Boilerpark',
+      src: "/assets/boilerpark.png",
+      description: "BoilerPark is a real-time parking analytics platform that my team and I created at Purdue to help students and staff find available parking across campus. The system processes live camera feeds from campus lots using OpenCV-based vehicle detection to estimate occupancy levels in near real time. I designed the backend data pipeline using Redis Pub/Sub and WebSockets to stream updates to clients with low latency while storing historical data in Postgres for trend analysis and reliability scoring. The frontend is a React Native (Expo) mobile application with an interactive Google Maps interface that visualizes lot availability, data freshness, and predicted occupancy patterns. The platform combines computer vision, distributed data pipelines, and real-time mobile interfaces to deliver parking insights with under 10 seconds end-to-end latency.",
+      technologies: ["Expo", 'React Native', 'Tailwind', 'TypeScript', 'NodeJS', 'Google Maps SDK', 'Supabase', 'WebSockets', 'Python', 'OpenCV', 'Redis', 'PostgreSQL', 'Docker', 'Google Cloud Provider'],
+      github: 'https://github.com/Neel-Vachhani/Purdue-Parking-App',
+      link: 'https://github.com/Neel-Vachhani/Purdue-Parking-App',
+      comingSoon: false
+    },
+    // {
+
+    //   title: 'Yojna',
+    //   src: "/assets/yojna.png",
+    //   description: "I developed Yojna, my first React Native application, designed to showcase and increase awareness of government schemes and yojnas in India that often go underused. The app provides users with an accessible, mobile-first way to explore programs, featuring a clean UI and smooth animations built with React Native, Reanimated, and Expo. This project marked my entry into cross-platform development, where I focused on building a responsive interface, efficient navigation, and a seamless user experience.",
+    //   technologies: ["React-Native", 'Expo', 'Typescript', 'Reanimated'],
+    //   github: 'https://github.com/Utkarsh-M13/Yojna-App',
+    //   link: '',
+    //   comingSoon: true
+    // },
     {
       title: 'Tetreon',
       src: "/assets/tetreon.png",
