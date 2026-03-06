@@ -16,8 +16,8 @@ const Projects = () => {
     {
       title: 'Sentiment Analysis Trader',
       src: "/assets/dashboard.png",
-      description: "I built an AI-driven sentiment trading system that ingests market headlines and social chatter, scores sentiment, and turns it into buy/sell signals with risk controls (position sizing, stops, cooldowns). It executes in a paper-trading account, logs every trade, and supports backtesting. I also shipped a responsive React dashboard that streams the bot's live portfolio—holdings, P&L, equity curve, and trade history—so you can monitor performance in real time.",
-      technologies: ["NewsAPI", 'Polygon.io', 'IBKR', 'Twitter API', 'TimescaleDB', 'PostGres', 'PyTorch', 'FinBert', 'React', 'Socket.io'],
+      description: "I built an AWS hosted AI-driven sentiment trading system that ingests market headlines and social chatter, scores sentiment, and turns it into buy/sell signals with risk controls (position sizing, stops, cooldowns). It executes in a paper-trading account, logs every trade, and supports backtesting. I also shipped a responsive React dashboard that streams the bot's live portfolio—holdings, P&L, equity curve, and trade history—so you can monitor performance in real time.",
+      technologies: ["AWS Lambda", 'Polygon.io', 'Alpaca API', 'Twitter API', 'TimescaleDB', 'PostGres', 'PyTorch', 'FinBert', 'React', 'Socket.io'],
       github: 'https://github.com/Utkarsh-M13/Sentiment-Analysis-Trader',
       link: 'https://sat.utkarsh-dev.com/',
       comingSoon: true
