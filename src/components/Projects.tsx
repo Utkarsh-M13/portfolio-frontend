@@ -20,7 +20,7 @@ const Projects = () => {
       technologies: ["AWS Lambda", 'Polygon.io', 'Alpaca API', 'Twitter API', 'TimescaleDB', 'PostGres', 'PyTorch', 'FinBert', 'React', 'Socket.io'],
       github: 'https://github.com/Utkarsh-M13/Sentiment-Analysis-Trader',
       link: 'https://sat.utkarsh-dev.com/',
-      comingSoon: true
+      comingSoon: false
     },{
 
       title: 'Yojna',
