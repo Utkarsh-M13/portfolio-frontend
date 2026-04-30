@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "boilerpark.utkarsh-dev.com"
+        }
+      ],
+      "destination": "http://35.193.66.238.nip.io/:path*",
+      "permanent": false
+    }
+  ]
+}

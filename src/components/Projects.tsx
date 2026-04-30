@@ -28,7 +28,7 @@ const Projects = () => {
       description: "BoilerPark is a real-time parking analytics platform that my team and I created at Purdue to help students and staff find available parking across campus. The system processes live camera feeds from campus lots using OpenCV-based vehicle detection to estimate occupancy levels in near real time. I designed the backend data pipeline using Redis Pub/Sub and WebSockets to stream updates to clients with low latency while storing historical data in Postgres for trend analysis and reliability scoring. The frontend is a React Native (Expo) mobile application with an interactive Google Maps interface that visualizes lot availability, data freshness, and predicted occupancy patterns. The platform combines computer vision, distributed data pipelines, and real-time mobile interfaces to deliver parking insights with under 10 seconds end-to-end latency.",
       technologies: ["Expo", 'React Native', 'Tailwind', 'TypeScript', 'NodeJS', 'Google Maps SDK', 'Supabase', 'WebSockets', 'Python', 'OpenCV', 'Redis', 'PostgreSQL', 'Docker', 'Google Cloud Provider'],
       github: 'https://github.com/Neel-Vachhani/Purdue-Parking-App',
-      link: 'https://github.com/Neel-Vachhani/Purdue-Parking-App',
+      link: 'http://35.193.66.238.nip.io/',
       comingSoon: false
     },
     // {
