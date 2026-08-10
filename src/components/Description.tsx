@@ -3,10 +3,10 @@ const Description = () => {
   return (
     <div className='w-full h-fit mt-16 lg:mt-32 font-light text-secondary text-lg text-left'>
       <div>
-        Hey! I'm Utkarsh Majithia an aspiring web developer and a student at Purdue University.
+        Hey! I'm Utkarsh Majithia, a software developer and CS + EE student at Purdue University.
       </div>
       <div className='mt-6 max-w-[600px] xl:max-w-[800px]' >
-        I'm a Computer Science student and aspiring Software Development Engineer passionate about building scalable web applications and robust backend systems. I specialize in full-stack development with React, Node.js, and MongoDB, and I have hands-on experience with cloud deployment, authentication, and API design. I enjoy solving real-world problems with clean code, strong architecture, and a user-first mindset.
+        I build across the stack and beyond it: web apps, systems, and a few AI and hardware projects along the way. I love turning messy problems into clean, working products, and I'm always chasing the next thing to build. I'm always looking for collaborators too, so if you're building something interesting, <a className='underline decoration-1 hover:decoration-2' href="mailto:utkarsh.majithia13@gmail.com">reach out</a>.
       </div>
 
     </div>
