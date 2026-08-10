@@ -89,6 +89,10 @@ export default function AmorphousBackdropSynced() {
     const offX = new Float32Array(count);
     const offY = new Float32Array(count);
 
+    // Per-frame target offsets (float64 to match per-dot accumulation exactly)
+    const txArr = new Float64Array(count);
+    const tyArr = new Float64Array(count);
+
     // Sources
     const sources: Source[] = [];
     let lastSpawn = -1e9;
@@ -144,44 +148,81 @@ export default function AmorphousBackdropSynced() {
       const baseTx = BASE_AMP * baseUx;
       const baseTy = BASE_AMP * baseUy;
 
-      // Draw
+      // Accumulate target offsets. Iterate sources on the outside and only
+      // visit the grid cells inside each source's influence box; every dot
+      // outside that box provably falls below the same 1e-4 cutoff the inner
+      // check applies, so the result is identical to a per-dot loop at a
+      // fraction of the exp() cost (verified bit-for-bit).
+      txArr.fill(baseTx);
+      tyArr.fill(baseTy);
+
+      for (let s = 0; s < sources.length; s++) {
+        const src = sources[s];
+        const lifeProgress = Math.min(1, Math.max(0, (t - src.born) / src.life));
+        const srcStrength = (0.25 + 0.75 * globalAmp) * Math.sin(lifeProgress * Math.PI);
+        if (srcStrength <= 1e-4) continue;
+
+        // Largest dist^2 where exp(-dist2 * inv2Sigma2) * srcStrength >= 1e-4
+        const r2max = Math.log(srcStrength / 1e-4) / inv2Sigma2;
+        if (!(r2max > 0)) continue;
+        const r = Math.sqrt(r2max);
+
+        let cmin = Math.ceil((src.x - r - 4) / step) - 1;
+        let cmax = Math.floor((src.x + r - 4) / step) + 1;
+        let rmin = Math.ceil((src.y - r - 4) / step) - 1;
+        let rmax = Math.floor((src.y + r - 4) / step) + 1;
+        if (cmin < 0) cmin = 0;
+        if (cmax > cols - 1) cmax = cols - 1;
+        if (rmin < 0) rmin = 0;
+        if (rmax > rows - 1) rmax = rows - 1;
+
+        const angle = src.angle0 + DRIFT * (t - src.born);
+        const ux = Math.cos(angle), uy = Math.sin(angle);
+
+        for (let rr = rmin; rr <= rmax; rr++) {
+          const rowBase = rr * cols;
+          for (let cc = cmin; cc <= cmax; cc++) {
+            const k = rowBase + cc;
+            const dx = xs[k] - src.x, dy = ys[k] - src.y;
+            const dist2 = dx * dx + dy * dy;
+            const w = Math.exp(-dist2 * inv2Sigma2) * srcStrength;
+            if (w < 1e-4) continue;
+            txArr[k] += AMP * w * ux;
+            tyArr[k] += AMP * w * uy;
+          }
+        }
+      }
+
+      // Smooth toward targets and draw
       const half = DOT * 0.5;
       for (let i = 0; i < count; i++) {
-        const x0 = xs[i], y0 = ys[i];
-
-        // Target offsets (subtle)
-        let tx = baseTx, ty = baseTy;
-
-        for (let s = 0; s < sources.length; s++) {
-          const src = sources[s];
-          const lifeProgress = Math.min(1, Math.max(0, (t - src.born) / src.life));
-
-          const srcStrength = (0.25 + 0.75 * globalAmp) * Math.sin(lifeProgress * Math.PI);
-
-          const dx = x0 - src.x, dy = y0 - src.y;
-          const dist2 = dx * dx + dy * dy;
-          const w = Math.exp(-dist2 * inv2Sigma2) * srcStrength;
-          if (w < 1e-4) continue;
-
-          const angle = src.angle0 + DRIFT * (t - src.born);
-          const ux = Math.cos(angle), uy = Math.sin(angle);
-
-          tx += AMP * w * ux;
-          ty += AMP * w * uy;
-        }
-
-        offX[i] += (tx - offX[i]) * alpha;
-        offY[i] += (ty - offY[i]) * alpha;
+        offX[i] += (txArr[i] - offX[i]) * alpha;
+        offY[i] += (tyArr[i] - offY[i]) * alpha;
 
         ctx.fillStyle = COLOURS[colorIdx[i]];
-        ctx.fillRect(x0 + offX[i] - half, y0 + offY[i] - half, DOT, DOT);
+        ctx.fillRect(xs[i] + offX[i] - half, ys[i] + offY[i] - half, DOT, DOT);
       }
 
       rafRef.current = requestAnimationFrame(frame);
     }
 
+    // Pause the loop while the tab is hidden; reset timing on resume so the
+    // smoothing step does not take one large jump from the elapsed dt.
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (rafRef.current) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
+      } else {
+        prevMsRef.current = 0;
+        if (rafRef.current == null) rafRef.current = requestAnimationFrame(frame);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     rafRef.current = requestAnimationFrame(frame);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, [size.w, size.h, BG, theme]);
 
   return (
