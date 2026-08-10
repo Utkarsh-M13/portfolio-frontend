@@ -75,9 +75,9 @@ const Topbar = ({scrolled} : Props) => {
   return (
     <div className={(scrolled || !theme) ? scrolledStyle : nonScrolledStyle}>
       <div className='w-[160px]  ml-[40px] lg:ml-[56px] flex justify-between items-center'>
-        <div className='cursor-pointer bg-white rounded-[12px] hidden lg:inline' onClick={() => {setLogo((b) => (b + 1) % 2)}}>
-          <img className='rounded-[12px] w-[48px] h-[48px] lg:w-[64px] lg:h-[64px] border-secondary border-1' src={logoURL} alt="" />
-        </div>
+        <button type="button" aria-label="Toggle avatar" className='cursor-pointer bg-white rounded-[12px] hidden lg:inline' onClick={() => {setLogo((b) => (b + 1) % 2)}}>
+          <img className='rounded-[12px] w-[48px] h-[48px] lg:w-[64px] lg:h-[64px] border-secondary border-1' src={logoURL} alt="Utkarsh Majithia avatar" />
+        </button>
         <button className={`hidden lg:inline text-secondary cursor-pointer relative`} disabled={music} onClick={() => {setMusic(true)}}>
           {music && <Music forwardRef={musicRef}></Music>}
           <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -89,13 +89,13 @@ const Topbar = ({scrolled} : Props) => {
       <div className='flex justify-between gap-40 mr-12 items-center'>
         {scrolled === undefined ? null :
         <div className='hidden w-fit text-[20px] text-secondary lg:flex gap-10'>
-          <div className={scroll === 0 ? highlight : nonHighlight} onClick={handleAboutClick}>About</div>
-          <div className={scroll === 1 ? highlight : nonHighlight} onClick={handleExperienceClick}>Experience</div>
-          <div className={scroll === 2 ? highlight : nonHighlight} onClick={handleProjectClick}>Projects</div>
+          <button type="button" className={scroll === 0 ? highlight : nonHighlight} onClick={handleAboutClick}>About</button>
+          <button type="button" className={scroll === 1 ? highlight : nonHighlight} onClick={handleExperienceClick}>Experience</button>
+          <button type="button" className={scroll === 2 ? highlight : nonHighlight} onClick={handleProjectClick}>Projects</button>
         </div>
         }
-        {theme ? 
-        <div className='text-secondary cursor-pointer' onClick={switchTheme}>
+        {theme ?
+        <button type="button" aria-label="Switch to light mode" className='text-secondary cursor-pointer' onClick={switchTheme}>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_47_215)">
               <path d="M12 0.555989C12.1947 0.793462 12.314 1.08373 12.3425 1.38951C12.371 1.69529 12.3075 2.00261 12.16 2.27199C11.0031 4.39469 10.3992 6.77449 10.404 9.19199C10.404 17.234 16.96 23.746 25.04 23.746C26.096 23.7447 27.118 23.638 28.106 23.426C28.4082 23.3613 28.7228 23.3867 29.0108 23.4991C29.2987 23.6114 29.5474 23.8057 29.726 24.058C29.915 24.3205 30.0114 24.6383 30.0002 24.9616C29.989 25.2848 29.8707 25.5952 29.664 25.844C28.0953 27.7708 26.1164 29.3232 23.8716 30.3882C21.6268 31.4531 19.1726 32.0038 16.688 32C7.468 32 0 24.572 0 15.42C0 8.53199 4.228 2.62399 10.248 0.119989C10.5478 -0.00741111 10.8809 -0.0337737 11.1969 0.0448851C11.513 0.123544 11.7949 0.302949 12 0.555989ZM9.716 2.62199C7.40135 3.86382 5.46633 5.70948 4.11655 7.96288C2.76676 10.2163 2.05262 12.7933 2.05 15.42C2.05 23.46 8.608 29.972 16.688 29.972C18.6228 29.9749 20.539 29.5943 22.3258 28.8521C24.1127 28.1099 25.7346 27.0209 27.098 25.648C26.4233 25.732 25.7373 25.774 25.04 25.774C15.82 25.774 8.354 18.346 8.354 9.19399C8.354 6.85999 8.838 4.63799 9.716 2.62199Z" fill="currentColor"/>
@@ -106,13 +106,13 @@ const Topbar = ({scrolled} : Props) => {
               </clipPath>
               </defs>
           </svg>
-        </div>
+        </button>
         :
-        <div className='text-secondary cursor-pointer' onClick={switchTheme}>
+        <button type="button" aria-label="Switch to dark mode" className='text-secondary cursor-pointer' onClick={switchTheme}>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-sun" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
         </svg>
-        </div>
+        </button>
         }
       </div>
     </div>

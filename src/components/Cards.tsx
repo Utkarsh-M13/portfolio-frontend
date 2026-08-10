@@ -23,7 +23,6 @@ const Cards = () => {
           const idx = sectionIDs.indexOf((entry.target as HTMLElement).id)
           if (idx !== -1) {
             setScroll(idx);
-            console.log('idx', idx)
           }
         }
       })

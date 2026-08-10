@@ -19,15 +19,17 @@ const ProjectCard = ({title, description, link, github, src, technologies, comin
 
   return (
     <div className={style}>
-      <div className='font-light text-sm pt-2'><img width={144} src={src} alt="" /></div>
+      <div className='font-light text-sm pt-2'><img width={144} src={src} alt={`${title} screenshot`} /></div>
       <div className='flex flex-col w-fit lg:w-120'>
         <div className='font-medium text-md align-text-top flex items-end gap-1 hover:underline decoration-1 cursor-pointer'>
-          {comingSoon ? <Link to="/coming-soon">{title}</Link> : <a href={link}>{title}</a>}
+          {comingSoon ? <Link to="/coming-soon">{title}</Link> : link ? <a href={link}>{title}</a> : <span>{title}</span>}
+          {(comingSoon || link) &&
           <svg className='mb-1' width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" d="M2.91715 9.08278C2.76093 8.92654 2.76093 8.67326 2.91715 8.5171L8.23431 3.1999H4.79999C4.57908 3.1999 4.39999 3.02081 4.39999 2.7999C4.39999 2.57899 4.57908 2.3999 4.79999 2.3999H9.19999C9.30607 2.3999 9.40783 2.44205 9.48287 2.51706C9.55783 2.59208 9.59999 2.69381 9.59999 2.7999V7.19991C9.59999 7.42082 9.42087 7.59991 9.19999 7.59991C8.97911 7.59991 8.79999 7.42082 8.79999 7.19991V3.76559L3.48283 9.08278C3.32662 9.23894 3.07336 9.23894 2.91715 9.08278Z" fill="currentColor"/>
-          </svg>
+          </svg>}
         </div>
-        <a href={github}>
+        {github &&
+        <a href={github} aria-label={`${title} on GitHub`}>
           <svg className='absolute right-3 top-3 cursor-pointer' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_53_560)">
           <path d="M10 18.3332C14.6024 18.3332 18.3334 14.6022 18.3334 9.99984C18.3334 5.39746 14.6024 1.6665 10 1.6665C5.39764 1.6665 1.66669 5.39746 1.66669 9.99984C1.66669 14.6022 5.39764 18.3332 10 18.3332Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -40,7 +42,7 @@ const ProjectCard = ({title, description, link, github, src, technologies, comin
           </clipPath>
           </defs>
           </svg>
-        </a>
+        </a>}
 
         <div className='font-light text-sm lg:min-h-[140px] mt-2'>
          {description}
