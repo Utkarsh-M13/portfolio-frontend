@@ -169,27 +169,29 @@ const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
       </button>
 
       {selected && createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/70" onClick={() => setSelected(null)} />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setSelected(null)}>
+          <div className="absolute inset-0 bg-black/70" />
           <div
             role="dialog"
             aria-modal="true"
             aria-label={selected.title}
-            className="relative z-[101] w-full max-w-[560px] max-h-[85vh] overflow-auto rounded-2xl border border-[#333] bg-primary text-secondary p-6"
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-[101] w-full max-w-[560px] max-h-[85vh] overflow-hidden rounded-2xl border border-[#333] bg-primary text-secondary"
           >
             <button
               ref={closeBtnRef}
               type="button"
               aria-label="Close"
               onClick={() => setSelected(null)}
-              className="absolute right-4 top-4 grid place-items-center w-8 h-8 rounded-full bg-primary/80 border border-secondary/20 hover:bg-primary cursor-pointer transition-colors"
+              className="absolute right-3 top-3 z-10 grid place-items-center w-8 h-8 rounded-full bg-primary/50 backdrop-blur-sm border border-secondary/20 text-secondary hover:bg-primary cursor-pointer transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l8 8M12 4l-8 8" /></svg>
             </button>
 
-            <img className="rounded-xl w-full max-h-[280px] object-cover object-top bg-black/20 mb-4" src={selected.src} alt={`${selected.title} screenshot`} />
+            <div className="max-h-[85vh] overflow-y-auto p-6">
+              <img className="rounded-xl w-full max-h-[280px] object-cover object-top bg-black/20 mb-4" src={selected.src} alt={`${selected.title} screenshot`} />
 
-            <h3 className="font-medium text-xl mb-3">{selected.title}</h3>
+              <h3 className="font-medium text-xl mb-3">{selected.title}</h3>
             <p className="font-light text-sm mb-5">{selected.description}</p>
 
             <div className="flex flex-wrap gap-2 mb-6">
@@ -208,6 +210,7 @@ const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
               {selected.github && (
                 <a href={selected.github} className={btnStyle}>GitHub</a>
               )}
+              </div>
             </div>
           </div>
         </div>,
