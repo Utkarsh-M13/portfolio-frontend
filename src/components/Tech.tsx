@@ -16,11 +16,67 @@ const Tech = () => {
     link: 'https://react.dev/'
   },
   {
+    name: 'Typescript',
+    width:48,
+    height:48,
+    src: '/assets/typescript.png',
+    link: 'https://www.typescriptlang.org/'
+  },
+  {
     name: 'Next',
     width:48,
     height:48,
     src: '/assets/next.png',
     link: 'https://nextjs.org/'
+  },
+  {
+    name: 'NodeJS',
+    width:56,
+    height:56,
+    src: '/assets/node.svg',
+    link: 'https://nodejs.org/en'
+  },
+  {
+    name: 'Python',
+    width:48,
+    height:48,
+    src: '/assets/python.svg',
+    link: 'https://www.python.org/'
+  },
+  {
+    name: 'PostgreSQL',
+    width:48,
+    height:48,
+    src: '/assets/postgresql.svg',
+    link: 'https://www.postgresql.org/'
+  },
+  {
+    name: 'Docker',
+    width:48,
+    height:48,
+    src: '/assets/docker.svg',
+    link: 'https://www.docker.com/'
+  },
+  {
+    name: 'AWS',
+    width:48,
+    height:48,
+    src: '/assets/aws.svg',
+    link: 'https://aws.amazon.com/'
+  },
+  {
+    name: 'GCP',
+    width:48,
+    height:48,
+    src: '/assets/googlecloud.svg',
+    link: 'https://cloud.google.com/'
+  },
+  {
+    name: 'PyTorch',
+    width:48,
+    height:48,
+    src: '/assets/pytorch.svg',
+    link: 'https://pytorch.org/'
   },
   {
     name: 'Tailwind',
@@ -30,32 +86,11 @@ const Tech = () => {
     link: 'https://tailwindcss.com/'
   },
   {
-    name: 'NodeJS',
-    width:56,
-    height:56,
-    src: '/assets/node.svg',
-    link: 'https://nodejs.org/en'
-  }, 
-  {
-    name: 'Vite.js',
+    name: 'C++',
     width:48,
     height:48,
-    src: '/assets/vite.svg',
-    link: 'https://vite.dev/'
-  }, 
-  {
-    name: 'Typescript',
-    width:48,
-    height:48,
-    src: '/assets/typescript.png',
-    link: 'https://www.typescriptlang.org/'
-  }, 
-  {
-    name: 'MongoDB',
-    width:48,
-    height:48,
-    src: '/assets/mongo.svg',
-    link: 'https://www.mongodb.com/'
+    src: '/assets/cplusplus.svg',
+    link: 'https://isocpp.org/'
   }, ]
   return (
     <div className='w-full h-fit mt-12 lg:mt-24 text-left'>
