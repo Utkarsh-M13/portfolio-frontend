@@ -56,3 +56,11 @@ body {
 .condensed {
   font-family: "Roboto Condensed";
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,18 +1,16 @@
-import ProjectCard from './ProjectCard'
-
-type Card = {
-  title: string,
-  description: string,
-  link: string,
-  github: string,
-  src: string,
-  technologies: string[],
-  comingSoon?: boolean
-}
-
+import ProjectsCarousel, { type Project } from './ProjectsCarousel'
 
 const Projects = () => {
-  const projects : Card[] = [
+  const projects : Project[] = [
+    {
+      title: 'GatePaint',
+      src: "/assets/gatepaint.png",
+      description: "GatePaint is a browser toy I built for making pixel art out of boolean logic. You drag logic gates and comparators onto a workspace and wire them into a circuit, and every pixel runs its own x and y coordinate through that circuit to decide whether it turns on. So a picture isn't really drawn, it's computed: rewire one gate and the whole image repaints. It's built with React and Vite around a pure evaluation engine that runs the gate graph once per pixel, with a gallery of patterns like rings, checkerboards, and a bullseye to reverse-engineer.",
+      technologies: ["ReactJS", 'Vite', 'TypeScript', 'Canvas'],
+      github: 'https://github.com/Utkarsh-M13/gatepaint',
+      link: '',
+      comingSoon: true
+    },
     {
       title: 'Sentiment Analysis Trader',
       src: "/assets/dashboard.png",
@@ -59,9 +57,9 @@ const Projects = () => {
     }
   ]
   return (
-    <div id='Projects' className='w-full h-fit mt-12 lg:mt-24 text-left grid gap-4'>
+    <div id='Projects' className='w-full h-fit mt-12 lg:mt-24 text-left'>
       <div className='font-medium text-lg text-secondary mb-4'>Projects</div>
-      {projects.map((c) => <ProjectCard key={c.title} description={c.description} title={c.title} technologies={c.technologies} link={c.link} github={c.github} src={c.src} comingSoon={c.comingSoon}></ProjectCard>)}
+      <ProjectsCarousel projects={projects} />
     </div>
   )
 }
